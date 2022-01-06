@@ -5,7 +5,7 @@
 **Pronouns.Page-rb** is an API wrapper for the [pronouns.page](https://en.pronouns.page/api) public API's Cards iterface, this repo includes a ruby class file that can be called on it own (`PronounPage.rb`), and a command line interface to it (`cli.rb`)
 
 ## Using the CLI:
-To use the CLI install the latest version of ruby and run `gem install json` to install the needed JSON ruby gem, open a command prompt/terminal in the page and run: 
+To use the CLI install the latest version of ruby and run `bundle install` to install the needed JSON ruby gem, open a command prompt/terminal in the page and run: 
 ```
 ruby cli.rb <username> <language>
 ```
