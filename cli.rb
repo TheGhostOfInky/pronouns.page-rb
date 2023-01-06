@@ -1,34 +1,29 @@
+require "colorize"
 require_relative "PronounPage"
 
 if ARGV.length() == 2
     thisUser = PronounPage.new(ARGV[0],ARGV[1])
-    print "Username: ", thisUser.username, "\n"
-    print "Avatar: ", thisUser.avatar
-    print "\nNames:\n"
-    thisUser.names.each do |i|
-        i.each do |key,value|
-            print key.to_s, ", ", value, "\n"
-        end
+    print "Username: ".red, thisUser.username.yellow, "\n"
+    print "Avatar: ".red, thisUser.avatar.yellow
+    print "\nNames:\n".red
+    thisUser.names.each do |key,value|
+        print key.to_s.green, ", ".green, value.yellow, "\n"
     end
-    print "\nPronouns:\n"
-    thisUser.pronouns.each do |i|
-        i.each do |key,value|
-            print key.to_s, ", ", value, "\n"
-        end
+    print "\nPronouns:\n".red
+    thisUser.pronouns.each do |key,value|
+        print key.to_s.green, ", ".green, value.yellow, "\n"
     end
-    print "Description: ", thisUser.description, "\nLinks:\n"
+    print "Description: ".red, thisUser.description.yellow, "\nLinks:\n".red
     thisUser.links.each do |i|
-        print i, "\n"
+        print i.yellow, "\n"
     end
-    print "Age:", thisUser.age, "\nFlags:\n"
+    print "Age:".red, thisUser.age.to_s.yellow, "\nFlags:\n".red
     thisUser.flags.each do |i|
-        print i, "\n"
+        print i.yellow, "\n"
     end
-    print "\nWords:\n"
-    thisUser.words.each do |i|
-        i.each do |key,value|
-            print key.to_s, ", ", value, "\n"
-        end
+    print "\nWords:\n".red
+    thisUser.words.each do |key,value|
+        print key.to_s.green, ", ".green, value.yellow, "\n"
     end
 else 
     print "Invalid input, correct syntax is 'ruby cli.rb username lang'"

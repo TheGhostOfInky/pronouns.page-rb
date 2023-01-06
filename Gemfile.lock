@@ -1,13 +1,15 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    json (2.6.1)
+    colorize (0.8.1)
 
 PLATFORMS
+  ruby
+  x64-mingw-ucrt
   x64-mingw32
 
 DEPENDENCIES
-  json (~> 2.6)
+  colorize (~> 0.8.1)
 
 BUNDLED WITH
-   2.2.22
+   2.4.2

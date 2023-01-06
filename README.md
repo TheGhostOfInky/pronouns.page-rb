@@ -25,10 +25,10 @@ This wrapper provides 9 methods as follows:
 
 - :username - string
 - :avatar - string
-- :names - Array\<Hash\>
-- :pronouns - Array\<Hash\>
+- :names - Hash
+- :pronouns - Hash
 - :description - string
 - :links - Array\<string\>
 - :age - integer
 - :flags - Array\<string\>
-- :words - Array\<Hash\>
+- :words - Hash

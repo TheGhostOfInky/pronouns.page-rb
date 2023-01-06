@@ -3,7 +3,9 @@ class PronounPage
     require "json"
     def initialize(name,lang)
         @lang = lang
-        @data = JSON.parse(Net::HTTP.get(URI("https://en.pronouns.page/api/profile/get/#{name}")))
+        uri = URI("https://en.pronouns.page/api/profile/get/#{name}?version=2")
+        res = Net::HTTP.get(uri)
+        @data = JSON.parse(res)
         if @data["profiles"] == {}
             raise "invalid user"
         end
@@ -18,16 +20,16 @@ class PronounPage
         @data["avatar"]
     end
     def names
-        names = Array.new
+        names = {}
         @data["profiles"][@lang]["names"].each do |i|
-            names << {i[0] => type(i[1])}
+            names[i["value"]] = i["opinion"]
         end
         names
     end
     def pronouns
-        pronouns = Array.new
+        pronouns = {}
         @data["profiles"][@lang]["pronouns"].each do |i|
-            pronouns << {i[0] => type(i[1])}
+            pronouns[i["value"]] = i["opinion"]
         end
         pronouns
     end
@@ -46,32 +48,17 @@ class PronounPage
             flags << i
         end
         @data["profiles"][@lang]["customFlags"].each do |i|
-            flags << i[1]
+            flags << i["name"]
         end
         flags
     end
     def words
-        words = Array.new
+        words = {}
         @data["profiles"][@lang]["words"].each do |i|
-            i.each do |i|
-                words << {i[0] => type(i[1])}
+            i["values"].each do |i|
+                words[i["value"]] = i["opinion"]
             end
         end
         words
-    end
-    private
-    def type (val)
-        case val
-        when -1
-            "Nope"
-        when 0
-            "Okay"
-        when 1
-            "Yes"
-        when 2
-            "Jokingly"
-        when 3
-            "Only if we're close"
-        end
     end
 end
