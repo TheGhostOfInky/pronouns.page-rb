@@ -1,6 +1,6 @@
 class PronounPage 
     require "net/http"
-    require "json"
+    require "json/pure"
     def initialize(name,lang)
         @lang = lang
         uri = URI("https://en.pronouns.page/api/profile/get/#{name}?version=2")
