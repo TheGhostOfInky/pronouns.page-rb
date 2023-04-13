@@ -1,0 +1,12 @@
+class PronounPage
+    def initialize: (name: String, lang: String) -> void
+    attr_reader username: String
+    attr_reader avatar: String
+    attr_reader names: Hash[String, String]
+    attr_reader pronouns: Hash[String, String]
+    attr_reader description: String
+    attr_reader links: Array[String]
+    attr_reader age: Integer
+    attr_reader flags: Array[String]
+    attr_reader words: Hash[String, String]
+end
